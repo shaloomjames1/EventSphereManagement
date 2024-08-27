@@ -15,8 +15,6 @@ router.route("/").get(getUserAccount).post(createUserAccount)
 
 
 // Route to get, update, and delete a single user account by ID
-router.route("/:id").get(getSingleUserAccount).put(updateUserAccount).delete(deleteUserAccount)
-
-
+router.route("/:id").get(getSingleUserAccount).put(updateUserAccount).delete(deleteUserAccount);
 
 module.exports = router;
