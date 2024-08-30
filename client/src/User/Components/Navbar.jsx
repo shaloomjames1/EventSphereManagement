@@ -8,33 +8,6 @@ const Navbar = () => {
     const [isLogedIn,setIsLoged] =useState(false);
     const [userRole,setUserRole] = useState(null);
 
-    useEffect(
-        ()=>{
-            const sessionData = localStorage.getItem("session");
-        if(sessionData)
-        {
-            const parsedData = JSON.parse(sessionData);
-            setIsLoged(parsedData.isLogedIn);
-            setUserRole(parsedData.userrole);
-            setUsername(parsedData.username)
-        }
-        
-  
-        },[]);
-        
-                const HandleLogout= ()=>{
-                    localStorage.removeItem("session");
-                    setIsLoged(false);
-                    setUserRole(null);
-                    setUsername("Guest")
-                   }
-    useEffect(
-        ()=>{
-           console.log("localStorage updated")
-        
-  
-        },[HandleLogout]);
-     
 
   return (<>
   <nav className='nav'>
@@ -56,13 +29,6 @@ const Navbar = () => {
                                     <li><Link to="/">Home</Link>
                                   
                                     </li>
-                                    <li><Link to="/Shop">Shop</Link>
-                                       
-                                    </li>
-                                  
-                                    
-                                    <li><Link to="/About">About Us</Link></li>
-                                    <li><Link to="/Contact">Contact</Link></li>
                                 </ul>
                             </nav>
                         </div>
@@ -78,25 +44,9 @@ const Navbar = () => {
                                 </div>
                             </form>
                         </div>
-                        
-                        {isLogedIn?
-                        <div className="same-style">
-                                      <div className="dropdown">
-                                          <Link className="dropbtn">
-                                              <i className="icofont-user-alt-3"></i>
-
-                                          </Link>
-                                          <div className="dropdown-content container text-center p-3">
-                                              {/* <i className='icofont-user'></i> */}
-                                              <h5>{username}</h5>
-                                              <button onClick={HandleLogout} className='btn btn-danger'>Log Out</button>
-                                          </div>
-                                      </div>
-                  </div>  :
                   <div className="same-style">
                   <Link to='/Login'><button className='btn btn-dark'>login/Signup</button></Link>
               </div>
-                  }
                         <div class="same-style header-cart">
                             <a class="cart-active" href="#"><i class="icofont-shopping-cart"></i></a>
                         </div>
