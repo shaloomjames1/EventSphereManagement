@@ -12,6 +12,7 @@ const {
 
 // Route to get all user accounts and create a new user account
 router.route("/").get(getUserAccount).post(upload.single("userimage"),createUserAccount);                        
+                        
 
 
 

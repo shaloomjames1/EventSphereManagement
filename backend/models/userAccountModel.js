@@ -27,7 +27,9 @@ const userSchema = mongoose.Schema({
         default:"user",
     },
     userimage:{
-        type:Buffer,
+        // type:Buffer,
+        type:String,
+        required: [true, "Please add your image"]
     },
 },
 
